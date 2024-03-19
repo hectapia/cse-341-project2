@@ -1,8 +1,10 @@
 const express =  require('express');
+const bodyParser = require('body-parser');
 const mongodb = require('./data/database');
+const port = process.env.PORT || 3001;
 const app = express();
 
-const port = process.env.PORT || 3001;
+app.use(bodyParser.json());
 
 app.use('/', require('./routes'));
 
