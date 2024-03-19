@@ -3,6 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 const getAll = async (req, res) => {
+    //#swagger.tags=['Departments']
     const result = await mongodb.getDatabase().db().collection('departments').find();
     result.toArray().then((departments) => {
         res.setHeader('Content-Type','application/json');
@@ -11,6 +12,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
+    //#swagger.tags=['Departments']
     const departmentId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db().collection('departments').find({_id: departmentId});
     result.toArray().then((departments) => {
