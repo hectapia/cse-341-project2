@@ -1,0 +1,40 @@
+// localhost
+### Get all contacts
+GET http://localhost:3001/students/
+
+### Get contacts by Id
+GET http://localhost:3001/students/65f4bfe0662bda929d894442
+
+### Create a contact
+POST http://localhost:3001/students/ HTTP/1.1
+Content-Type: application/json
+
+    {
+    "fname": "Peter",
+    "lname": "Myers",
+    "email": "peteryers@university.eku",
+    "major": "Software Development",
+    "gender": "M",
+    "city": "Miami",
+    "state": "FL",
+    "birthdate": "1996-03-15"
+    }
+
+### Put a contact
+PUT http://localhost:3001/students/65f92378afc7b965b1060c4f HTTP/1.1
+Content-Type: application/json
+
+    {
+    "fname": "Peter",
+    "lname": "Myers",
+    "email": "petermyers@university.edu",
+    "major": "Software Development",
+    "gender": "M",
+    "city": "Miami",
+    "state": "FL",
+    "birthdate": "1995-04-17"
+    }
+
+### Delete a contact
+DELETE http://localhost:3001/students/65f92097cb822dac64253a40 HTTP/1.1
+Content-Type: application/json
