@@ -13,6 +13,9 @@ const getAll = async (req, res) => {
 
 const getSingle = async (req, res) => {
     //#swagger.tags=['Departments']
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid department id to find a department.');
+      }
     const departmentId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db().collection('departments').find({_id: departmentId});
     result.toArray().then((departments) => {
@@ -37,6 +40,9 @@ const createDepartment = async (req, res) => {
 
 const updateDepartment = async (req, res) => {
     //#swagger.tags=['Departments']
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid department id to update a department.');
+      }
     const departmentId = new ObjectId(req.params.id);
     const department = {
         department: req.body.department, 
@@ -52,6 +58,9 @@ const updateDepartment = async (req, res) => {
 
 const deleteDepartment = async (req, res) => {
     //#swagger.tags=['Departments']
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid department id to delete a department.');
+      }
     const departmentId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('departments').deleteOne({_id: departmentId});
     if (response.deletedCount > 0) {
