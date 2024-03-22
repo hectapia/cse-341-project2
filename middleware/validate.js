@@ -7,7 +7,7 @@ const saveStudent = (req, res, next) => {
     email: 'required|email',
     major: 'required|string',
     gender: 'required|string',
-    city: 'required|email',
+    city: 'required|string',
     state: 'required|string',
     birthdate: 'string'
   };
