@@ -3,15 +3,16 @@ const router = express.Router();
 
 const departmentsController = require('../controllers/departments');
 const validation = require('../middleware/validate');
+const { isAuthenticated } = require('../middleware/authenticate');
 
 router.get('/', departmentsController.getAll);
 
 router.get('/:id', departmentsController.getSingle);
 
-router.post('/', validation.saveDepartment, departmentsController.createDepartment);
+router.post('/', isAuthenticated, validation.saveDepartment, departmentsController.createDepartment);
 
-router.put('/:id', validation.saveDepartment, departmentsController.updateDepartment)
+router.put('/:id', isAuthenticated, validation.saveDepartment, departmentsController.updateDepartment)
 
-router.delete('/:id', departmentsController.deleteDepartment);
+router.delete('/:id', isAuthenticated, departmentsController.deleteDepartment);
 
 module.exports = router;
