@@ -1,11 +1,11 @@
 // localhost
-### Get all contacts
+### Get all student
 GET http://localhost:3001/students/
 
 ### Get contacts by Id
 GET http://localhost:3001/students/65f4bfe0662bda929d894442
 
-### Create a contact
+### Create a student
 POST http://localhost:3001/students/ HTTP/1.1
 Content-Type: application/json
 
@@ -20,7 +20,7 @@ Content-Type: application/json
     "birthdate": "1996-03-15"
     }
 
-### Put a contact
+### Put a student
 PUT http://localhost:3001/students/65f92378afc7b965b1060c4f HTTP/1.1
 Content-Type: application/json
 
@@ -35,6 +35,15 @@ Content-Type: application/json
     "birthdate": "1995-04-17"
     }
 
-### Delete a contact
+### Delete a student
 DELETE http://localhost:3001/students/65f92097cb822dac64253a40 HTTP/1.1
 Content-Type: application/json
+
+### Create a department
+POST http://localhost:3001/departments/ HTTP/1.1
+Content-Type: application/json
+
+    {
+    "department": "PHYSICS",
+    "deptCode": "PH"
+    }
